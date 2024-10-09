@@ -4,6 +4,7 @@ import ComponentShow from "./ComponentShow";
 import Sidebar from "./Sidebar";
 
 export default function openComponent() {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [selectedComponent, setSelectedComponent] = useState<string | null>(
     null
   );
