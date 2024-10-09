@@ -35,7 +35,7 @@ const Hero: React.FC = () => {
         </div>
         {/* Right side image */}
         <div className="w-full lg:w-1/2 flex items-center justify-center">
-          <div className="relative w-full aspect-square lg:aspect-auto">
+          <div className="relative w-full h-64 lg:h-auto  lg:w-1/2">
             <Image
               src={heroImg}
               alt="Programmer sitting outside castle"
