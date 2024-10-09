@@ -1,13 +1,15 @@
 "use client";
-
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import heroImg from "../../public/images/working.jpeg";
 import Image from "next/image";
 
 const AnimatedGrid = () => {
-  const lineVariants = {
-    initial: { pathLength: 0, opacity: 0 },
+  const lineVariants: Variants = {
+    initial: {
+      pathLength: 0,
+      opacity: 0,
+    },
     animate: {
       pathLength: 1,
       opacity: 0.2,
@@ -15,7 +17,7 @@ const AnimatedGrid = () => {
         duration: 2,
         ease: "easeInOut",
         repeat: Infinity,
-        repeatType: "reverse",
+        repeatType: "reverse" as const,
       },
     },
   };
@@ -40,7 +42,6 @@ const AnimatedGrid = () => {
           variants={lineVariants}
           initial="initial"
           animate="animate"
-          transition={{ delay: 0.2 }}
         />
         <motion.path
           d="M 150 150 L 250 150 L 250 250 L 150 250 L 150 150"
@@ -50,12 +51,11 @@ const AnimatedGrid = () => {
           variants={lineVariants}
           initial="initial"
           animate="animate"
-          transition={{ delay: 0.4 }}
         />
         {/* Diagonal lines */}
         {[0, 1, 2, 3].map((i) => (
           <motion.line
-            key={i}
+            key={`vertical-${i}`}
             x1={50 + i * 100}
             y1="50"
             x2={50 + i * 100}
@@ -65,12 +65,11 @@ const AnimatedGrid = () => {
             variants={lineVariants}
             initial="initial"
             animate="animate"
-            transition={{ delay: 0.1 * i }}
           />
         ))}
         {[0, 1, 2, 3].map((i) => (
           <motion.line
-            key={i}
+            key={`horizontal-${i}`}
             x1="50"
             y1={50 + i * 100}
             x2="350"
@@ -80,7 +79,6 @@ const AnimatedGrid = () => {
             variants={lineVariants}
             initial="initial"
             animate="animate"
-            transition={{ delay: 0.1 * i }}
           />
         ))}
       </svg>
